@@ -1,2 +1,2 @@
-import ExamplePlugin from "./plugin/index";
+import ExamplePlugin from './plugin/index';
 export default ExamplePlugin;

@@ -1,2 +1,2 @@
-import ExamplePlugin from "src";
+import ExamplePlugin from 'src';
 export default ExamplePlugin;

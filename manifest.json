@@ -1,11 +1,11 @@
 {
-	"id": "expert-invention",
-	"name": "Expert Invention",
-	"version": "0.0.1",
-	"minAppVersion": "0.15.0",
-	"description": "Utilize the PeerJS library to facilitate a peer-to-peer Obsidian vault sync between devices.",
-	"author": "Obsidian",
-	"authorUrl": "https://obsidian.md",
-	"fundingUrl": "https://obsidian.md/pricing",
-	"isDesktopOnly": false
+  "id": "expert-invention",
+  "name": "Expert Invention",
+  "version": "0.0.1",
+  "minAppVersion": "0.15.0",
+  "description": "Utilize the PeerJS library to facilitate a peer-to-peer Obsidian vault sync between devices.",
+  "author": "Obsidian",
+  "authorUrl": "https://obsidian.md",
+  "fundingUrl": "https://obsidian.md/pricing",
+  "isDesktopOnly": false
 }
