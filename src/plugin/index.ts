@@ -1,6 +1,6 @@
 import { Notice, Plugin } from 'obsidian';
 import ConnectionManager from 'src/connection_manager/connection_manager';
-import { askPair } from 'src/ui/ask_pair';
+import AskPairModal from 'src/ui/modals/ask_pair';
 
 export default class ExamplePlugin extends Plugin {
   async onload() {
@@ -12,7 +12,7 @@ export default class ExamplePlugin extends Plugin {
     new Notice('Plugin has started successfully', 2000);
 
     // Create a modal suggesting to pair with another device
-    await askPair(connectionManager);
+    new AskPairModal(this.app, connectionManager).open();
   }
   async onunload() {
     // Release any resources configured by the plugin.
