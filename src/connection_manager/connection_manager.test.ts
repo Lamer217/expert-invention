@@ -1,5 +1,6 @@
 import ConnectionManager from './connection_manager';
 import { Peer } from 'peerjs';
+import { InitializePeerError } from './connection_manager.errors';
 
 describe('ConnectionManager', () => {
   it('should return a Peer object', () => {
@@ -11,7 +12,7 @@ describe('ConnectionManager', () => {
       jest.doMock('peerjs', () => {
         return {
           Peer: jest.fn().mockImplementation(() => {
-            throw new Error('instantiate-peer-error');
+            throw new InitializePeerError();
           }),
         };
       });
@@ -21,7 +22,8 @@ describe('ConnectionManager', () => {
         './connection_manager'
       ).default;
 
-      expect(() => new ConnectionManager()).toThrow('instantiate-peer-error');
+      // TODO: Check for an instance of the error class instead
+      expect(() => new ConnectionManager()).toThrow(new InitializePeerError());
     });
   });
 });
