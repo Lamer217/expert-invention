@@ -2,7 +2,7 @@
 import Peer from 'peerjs';
 
 interface ConnectionManager {
-  id: string | null;
+  peerId: string | null;
   connectToPeer(peerId: string): void;
 }
 
@@ -16,17 +16,17 @@ class ConnectionManager implements ConnectionManager {
       // Create a new Peer instance
       // No ID is given, one will be generated automatically
       this.peer = new Peer({ debug: 2 }); // Print out warns and errors
-
-      // Add an event listener for the 'open' event
-      // This event is triggered when the connection to the PeerServer is established
-      this.peer.on('open', (id) => {
-        this.id = id;
-        // Log the ID of the peer to the console
-        console.log('My peer ID is: ' + this.id);
-      });
     } catch (error) {
       throw new Error('instantiate-peer-error');
     }
+
+    // Add an event listener for the 'open' event
+    // This event is triggered when the connection to the PeerServer is established
+    this.peer.on('open', (id) => {
+      this.peerId = id;
+      // Log the ID of the peer to the console
+      console.log('My peer ID is: ' + this.peerId);
+    });
   }
 
   getPeer(): Peer {
