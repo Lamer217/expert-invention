@@ -1,6 +1,7 @@
 // Import the Peer class from the peerjs module
 import Peer from 'peerjs';
 import { InitializePeerError } from './connection_manager.errors';
+import QrScanner from 'qr-scanner';
 
 interface ConnectionManager {
   peerId: string | null;
@@ -40,6 +41,29 @@ class ConnectionManager implements ConnectionManager {
 
   getPeer(): Peer {
     return this.peer;
+  }
+  /**
+   * Scans for a QR code in the given video stream and returns the decoded data.
+   */
+  async scanQR(videoElement: HTMLVideoElement): Promise<string> {
+    return new Promise((resolve, reject) => {
+      try {
+        // Instantiate a new QrScanner object
+        new QrScanner(
+          videoElement, // The video element to use for the scanner feed display
+          (result: QrScanner.ScanResult) => {
+            resolve(result.data); // Resolve with the scanned result string
+          },
+          {
+            onDecodeError: reject, // Reject with the error if there is an issue decoding the QR code
+            preferredCamera: 'environment',
+            highlightCodeOutline: true,
+          }
+        ).start(); // Start the QR scanner
+      } catch (error) {
+        reject(error); // Reject with the error if there is an issue starting the QR scanner
+      }
+    });
   }
 }
 
