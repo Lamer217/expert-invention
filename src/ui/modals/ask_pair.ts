@@ -1,5 +1,5 @@
 import { Modal, App } from 'obsidian';
-import ConnectionManager from 'src/connection_manager/connection_manager';
+import ConnectionManager from 'src/connection/connection_manager';
 
 /**
  * Represents a modal for asking the user

@@ -1,5 +1,5 @@
 import { Notice, Plugin } from 'obsidian';
-import ConnectionManager from 'src/connection_manager/connection_manager';
+import ConnectionManager from 'src/connection/connection_manager';
 import AskPairModal from 'src/ui/modals/ask_pair';
 
 export default class CommunityPlugin extends Plugin {

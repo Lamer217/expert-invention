@@ -1,5 +1,5 @@
 import { App, Modal } from 'obsidian';
-import ConnectionManager from 'src/connection_manager/connection_manager';
+import ConnectionManager from 'src/connection/connection_manager';
 
 export default class ScanModal extends Modal {
   connectionManager: ConnectionManager;
