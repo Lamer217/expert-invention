@@ -33,6 +33,7 @@ export default class SettingsManager {
    */
   async loadSettings(): Promise<void> {
     this.settings = (await this.plugin.loadData()) as PluginSettings;
+    if (!this.settings) this.settings = {};
   }
 
   /**
@@ -65,6 +66,7 @@ export default class SettingsManager {
   ): void {
     if (this.settings) {
       this.settings[key] = value;
+      this.saveSettings();
     }
   }
 
