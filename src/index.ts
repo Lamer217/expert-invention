@@ -1,2 +1,2 @@
-import ExamplePlugin from './plugin/index';
-export default ExamplePlugin;
+import CommunityPlugin from './plugin/index';
+export default CommunityPlugin;

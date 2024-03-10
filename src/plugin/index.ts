@@ -2,7 +2,7 @@ import { Notice, Plugin } from 'obsidian';
 import ConnectionManager from 'src/connection_manager/connection_manager';
 import AskPairModal from 'src/ui/modals/ask_pair';
 
-export default class ExamplePlugin extends Plugin {
+export default class CommunityPlugin extends Plugin {
   async onload() {
     // Instantiate the ConnectionManager that will initialize a Peer instance
     const connectionManager = new ConnectionManager();
